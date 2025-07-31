@@ -5,11 +5,11 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -107,6 +107,15 @@ public class SecurityConfig {
                 .build();
 
         return new InMemoryUserDetailsManager(user);
+    }
+
+    // confirm client registration
+    @Bean
+    public CommandLineRunner printClients(RegisteredClientRepository repo) {
+        return args -> {
+            RegisteredClient client = repo.findByClientId("client-app");
+            System.out.println("Client Registered: " + client);
+        };
     }
 
 }
