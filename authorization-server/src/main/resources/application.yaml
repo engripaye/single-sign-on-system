@@ -1,8 +1,0 @@
-server:
-  port: 9000
-
-spring:
-  security:
-    user:
-      name: user1
-      password: "{noop}password1"   # Make sure this matches exactly
