@@ -12,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +27,7 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -42,22 +44,33 @@ public class SecurityConfig {
     @Order(1)
     public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-                .oidc(Customizer.withDefaults()); // Enable OpenID Connect (OIDC)
-        http.formLogin(Customizer.withDefaults()); // Enable form login for the auth server
+                .oidc(Customizer.withDefaults());
+
+        // Redirect to /login when not authenticated
+        http
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(
+                                new LoginUrlAuthenticationEntryPoint("/login")
+                        )
+                );
+
         return http.build();
     }
 
-    // ========== 2. Default Security Filter Chain for Login UI ==========
     @Bean
+    @Order(2)
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll()
-                        .anyRequest().authenticated())
-                .formLogin(form -> form.loginPage("/login").permitAll())
-                .build();
+        http
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().authenticated()
+                )
+                .formLogin(Customizer.withDefaults()); // Enable default login form
+
+        return http.build();
     }
+
 
     // ========== 3. Register OAuth2 Client ==========
     @Bean
@@ -109,13 +122,14 @@ public class SecurityConfig {
     // ========== 5. In-memory test user ==========
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-        var user = User.withUsername("user")
+        UserDetails user = User.withUsername("user")
                 .password(passwordEncoder.encode("password"))
                 .roles("USER")
                 .build();
 
         return new InMemoryUserDetailsManager(user);
     }
+
 
     // ========== 6. Password Encoder ==========
     @Bean

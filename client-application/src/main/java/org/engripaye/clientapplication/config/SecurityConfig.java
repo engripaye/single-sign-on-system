@@ -10,16 +10,15 @@ public class SecurityConfig {
 
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/public").permitAll()
+                        .requestMatchers("/").permitAll()
                         .anyRequest().authenticated()
                 )
-                .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/oauth2/authorization/custom") // custom = registration id
+                .oauth2Login(oauth -> oauth
+                        .loginPage("/oauth2/authorization/custom") // this triggers the redirect to Auth Server
                 );
         return http.build();
     }
-
 }

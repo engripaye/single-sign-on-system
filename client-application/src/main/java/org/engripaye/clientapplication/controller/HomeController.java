@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @GetMapping("/")
-    @ResponseBody
-    public String home() {
-        return "Welcome to the public homepage.";
+    public String index() {
+        return "index";
     }
 
-    @GetMapping("/secure")
-    @ResponseBody
-    public String secure(@AuthenticationPrincipal OidcUser oidcUser) {
-        return "Hello, " + oidcUser.getFullName() + "! Your email: " + oidcUser.getEmail();
+    @GetMapping("/home")
+    public String home(@AuthenticationPrincipal OidcUser oidcUser, Model model) {
+        model.addAttribute("user", oidcUser);
+        return "home";
     }
 }
