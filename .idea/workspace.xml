@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/single-sign-on-system.iml" afterDir="false" />
+    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -41,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.AuthorizationServerApplication.executor": "Run",
@@ -55,6 +54,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="AuthorizationServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="authorization-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.engripaye.authorizationserver.AuthorizationServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,11 +71,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753974449419</updated>
-      <workItem from="1753974450526" duration="1099000" />
+      <workItem from="1753974450526" duration="3641000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1753975977706</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753975977706</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1753976025277</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753976025277</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
   </component>
 </project>
