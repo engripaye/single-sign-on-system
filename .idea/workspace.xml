@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="latest commit">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="auth application commit by Engr. Ipaye">
+      <change afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +32,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="30e3wFn0Jaz9Tmx5DSB42P9GQq2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,6 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.AuthorizationServerApplication.executor": "Run",
+    "Spring Boot.ClientApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
@@ -61,7 +63,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.AuthorizationServerApplication">
+  <component name="RunManager" selected="Spring Boot.ClientApplication">
     <configuration name="AuthorizationServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="authorization-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.engripaye.authorizationserver.AuthorizationServerApplication" />
@@ -85,7 +87,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753974449419</updated>
-      <workItem from="1753974450526" duration="4128000" />
+      <workItem from="1753974450526" duration="4744000" />
+      <workItem from="1753973380698" duration="1699000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -111,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1753978138996</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="client application commit by Engr. Ipaye">
+      <option name="closed" value="true" />
+      <created>1753978655835</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753978655835</updated>
+    </task>
+    <task id="LOCAL-00005" summary="auth application commit by Engr. Ipaye">
+      <option name="closed" value="true" />
+      <created>1753979201374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753979201374</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
     <MESSAGE value="latest commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest commit" />
+    <MESSAGE value="client application commit by Engr. Ipaye" />
+    <MESSAGE value="auth application commit by Engr. Ipaye" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth application commit by Engr. Ipaye" />
   </component>
 </project>
