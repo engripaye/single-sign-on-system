@@ -121,9 +121,10 @@ public class SecurityConfig {
 
     // ========== 5. In-memory test user ==========
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("user1")
-                .password("{noop}password1") // NO ENCODING
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        UserDetails user = User.builder()
+                .username("user")
+                .password(passwordEncoder.encode("password123")) // BCrypt encoded
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);
