@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
 </head>
 <body>
-
-    <h2>Welcome <span th:text="${username}"></span>!</h2>
-    <p>User Attributes: <span th:text="${userAttributes}"></span></p>
-    <a href="/logout">Logout</a>
+<h1>Welcome, <span th:text="${username}"></span>!</h1>
+<p>Your email: <span th:text="${email}"></span></p>
+<pre th:text="${#lists.toString(claims)}"></pre>
 </body>
 </html>

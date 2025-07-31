@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="auth application commit by Engr. Ipaye">
-      <change afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-application/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-application/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753974449419</updated>
       <workItem from="1753974450526" duration="4744000" />
-      <workItem from="1753973380698" duration="1699000" />
+      <workItem from="1753973380698" duration="5427000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -130,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753979201374</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="auth application commit by Engr. Ipaye">
+      <option name="closed" value="true" />
+      <created>1753975134570</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753975134570</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -8,9 +8,13 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -18,6 +22,7 @@ import org.springframework.security.oauth2.server.authorization.client.InMemoryR
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -32,48 +37,50 @@ import java.util.UUID;
 @Configuration
 public class SecurityConfig {
 
+    // ========== 1. Authorization Server Filter Chain ==========
     @Bean
-    public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-
+    @Order(1)
+    public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-
-        http
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .permitAll());
-
+        http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
+                .oidc(Customizer.withDefaults()); // Enable OpenID Connect (OIDC)
+        http.formLogin(Customizer.withDefaults()); // Enable form login for the auth server
         return http.build();
     }
 
+    // ========== 2. Default Security Filter Chain for Login UI ==========
     @Bean
-    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated())
-                .formLogin(form -> form.loginPage("/login"))
+                .formLogin(form -> form.loginPage("/login").permitAll())
                 .build();
     }
 
+    // ========== 3. Register OAuth2 Client ==========
     @Bean
-    public RegisteredClientRepository registeredClientRepository() {
+    public RegisteredClientRepository registeredClientRepository(PasswordEncoder passwordEncoder) {
         RegisteredClient client = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("client-app")
-                .clientSecret("{noop}secret")
+                .clientSecret(passwordEncoder.encode("secret")) // hashed for production
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://localhost:8082/login/oauth2/code/client-app")
+                .redirectUri("http://localhost:8082/login/oauth2/code/custom")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
                 .scope(OidcScopes.EMAIL)
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+                .clientSettings(ClientSettings.builder()
+                        .requireAuthorizationConsent(true) // consent screen
+                        .build())
                 .build();
 
         return new InMemoryRegisteredClientRepository(client);
-
     }
 
+    // ========== 4. JWK Source (RSA Key Pair) ==========
     @Bean
     public JWKSource<SecurityContext> jwkSource() {
         KeyPair keyPair = generateRsaKey();
@@ -95,26 +102,33 @@ public class SecurityConfig {
             keyPairGenerator.initialize(2048);
             return keyPairGenerator.generateKeyPair();
         } catch (NoSuchAlgorithmException e) {
-            throw new IllegalStateException(e);
+            throw new IllegalStateException("Failed to generate RSA key", e);
         }
     }
 
+    // ========== 5. In-memory test user ==========
     @Bean
-    public UserDetailsService userDetailsService() {
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         var user = User.withUsername("user")
-                .password("{noop}password")
+                .password(passwordEncoder.encode("password"))
                 .roles("USER")
                 .build();
 
         return new InMemoryUserDetailsManager(user);
     }
 
-    // confirm client registration
+    // ========== 6. Password Encoder ==========
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    // ========== 8. Print Client on Startup ==========
     @Bean
     public CommandLineRunner printClients(RegisteredClientRepository repo) {
         return args -> {
             RegisteredClient client = repo.findByClientId("client-app");
-            System.out.println("Client Registered: " + client);
+            System.out.println("✅ Client Registered: " + client);
         };
     }
 

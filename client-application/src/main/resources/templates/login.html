@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h2>Login</h2>
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+<a href="/oauth2/authorization/custom">Login with OAuth2 Provider</a>
+</body>
+</html>
