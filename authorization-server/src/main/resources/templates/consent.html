@@ -1,13 +1,16 @@
-<form method="post" action="/oauth2/authorize">
+<form method="post" th:action="@{/oauth2/authorize/consent}">
     <input type="hidden" name="client_id" th:value="${clientId}" />
     <input type="hidden" name="state" th:value="${state}" />
-    <input type="hidden" name="scope" th:value="${scope}" />
-    <input type="hidden" name="user_code" th:value="${userCode}" />
     <input type="hidden" name="redirect_uri" th:value="${redirectUri}" />
 
     <p>The client <b th:text="${clientId}"></b> is requesting the following scopes:</p>
     <ul>
-        <li th:each="s : ${#strings.split(scope, ' ')}" th:text="${s}"></li>
+        <li th:each="s : ${#strings.split(scope, ' ')}">
+            <label>
+                <input type="checkbox" name="scope" th:value="${s}" checked />
+                <span th:text="${s}"></span>
+            </label>
+        </li>
     </ul>
 
     <button type="submit">Authorize</button>

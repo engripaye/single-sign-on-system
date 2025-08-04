@@ -12,3 +12,10 @@ spring:
         provider:
           custom:
             issuer-uri: http://localhost:9000
+server:
+  port: 8082
+  servlet:
+    session:
+      cookie:
+        same-site: none
+        secure: false

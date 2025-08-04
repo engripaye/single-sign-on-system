@@ -18,8 +18,12 @@ public class HomeController {
 
     @GetMapping("/home")
     public String homePage(Model model, OAuth2AuthenticationToken authentication) {
-        model.addAttribute("username", authentication.getPrincipal().getName());
-        return "home"; // Thymeleaf template: home.html
+        OidcUser oidcUser = (OidcUser) authentication.getPrincipal();
+
+        model.addAttribute("username", oidcUser.getFullName());
+        model.addAttribute("email", oidcUser.getEmail());
+
+        return "home";
     }
 
 }
