@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="auth, client application correction commit by Engr. Ipaye">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/resources/templates/consent.html" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/resources/templates/consent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/org/engripaye/authorizationserver/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/java/org/engripaye/clientapplication/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-application/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/client-application/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753974449419</updated>
       <workItem from="1753974450526" duration="4744000" />
-      <workItem from="1753973380698" duration="17750000" />
+      <workItem from="1753973380698" duration="19437000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -193,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754343991010</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="auth, client application correction commit by Engr. Ipaye">
+      <option name="closed" value="true" />
+      <created>1754346727833</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1754346727833</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

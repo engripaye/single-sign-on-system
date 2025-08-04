@@ -5,17 +5,19 @@ spring:
         registration:
           custom:
             client-id: client-app
-            client-secret: secret
+            client-secret: client-secret
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8082/login/oauth2/code/custom
-            scope: openid,profile,email
+            redirect-uri: "{baseUrl}/login/oauth2/code/custom"
+            scope: openid, profile, email
         provider:
           custom:
             issuer-uri: http://localhost:9000
+
+
+
 server:
   port: 8082
-  servlet:
-    session:
-      cookie:
-        same-site: none
-        secure: false
+
+logging:
+    level:
+      org.springframework.security: DEBUG

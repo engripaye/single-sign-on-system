@@ -19,6 +19,7 @@ public class SecurityConfig {
                 .oauth2Login(oauth -> oauth
                         .defaultSuccessUrl("/home", true) // redirects after login
                         .loginPage("/oauth2/authorization/custom")
+                        .failureUrl("/login?error")
                 );
         return http.build();
     }

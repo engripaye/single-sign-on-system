@@ -1,0 +1,17 @@
+
+
+server:
+  port: 9000
+
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          custom:
+            issuer-uri: http://localhost:9000
