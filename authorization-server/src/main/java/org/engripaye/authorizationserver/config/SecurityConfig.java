@@ -77,7 +77,7 @@ public class SecurityConfig {
     public RegisteredClientRepository registeredClientRepository(PasswordEncoder passwordEncoder) {
         RegisteredClient client = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("client-app")
-                .clientSecret(passwordEncoder.encode("your-client-secret")) // hashed for production
+                .clientSecret(passwordEncoder.encode("client-secret")) // hashed for production
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
