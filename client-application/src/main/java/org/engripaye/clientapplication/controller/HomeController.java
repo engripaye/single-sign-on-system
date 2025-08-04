@@ -1,6 +1,7 @@
 package org.engripaye.clientapplication.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +17,9 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String home(@AuthenticationPrincipal OidcUser oidcUser, Model model) {
-        model.addAttribute("user", oidcUser);
-        return "home";
+    public String homePage(Model model, OAuth2AuthenticationToken authentication) {
+        model.addAttribute("username", authentication.getPrincipal().getName());
+        return "home"; // Thymeleaf template: home.html
     }
+
 }
