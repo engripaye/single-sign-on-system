@@ -1,0 +1,14 @@
+<form method="post" action="/oauth2/authorize">
+    <input type="hidden" name="client_id" th:value="${clientId}" />
+    <input type="hidden" name="state" th:value="${state}" />
+    <input type="hidden" name="scope" th:value="${scope}" />
+    <input type="hidden" name="user_code" th:value="${userCode}" />
+    <input type="hidden" name="redirect_uri" th:value="${redirectUri}" />
+
+    <p>The client <b th:text="${clientId}"></b> is requesting the following scopes:</p>
+    <ul>
+        <li th:each="s : ${#strings.split(scope, ' ')}" th:text="${s}"></li>
+    </ul>
+
+    <button type="submit">Authorize</button>
+</form>

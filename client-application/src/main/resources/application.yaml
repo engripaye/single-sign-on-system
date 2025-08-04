@@ -20,3 +20,10 @@ spring:
             user-info-uri: http://localhost:9000/userinfo
             user-name-attribute: sub
             jwk-set-uri: http://localhost:9000/oauth2/jwks
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:
