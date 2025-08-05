@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="auth, client application correction commit by Engr. Ipaye" />
+    <list default="true" id="84378c7a-9ef0-407b-8988-3bd7f45191d5" name="Changes" comment="auth, client application correction commit by Engr. Ipaye">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +50,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/Downloads/secure-oauth2-third-party-integeration/secure-oauth2-third-party-integeration",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +84,8 @@
       <option name="presentableId" value="Default" />
       <updated>1753974449419</updated>
       <workItem from="1753974450526" duration="4744000" />
-      <workItem from="1753973380698" duration="20224000" />
+      <workItem from="1753973380698" duration="20857000" />
+      <workItem from="1754349990003" duration="2267000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -211,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754349161090</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="auth, client application correction commit by Engr. Ipaye">
+      <option name="closed" value="true" />
+      <created>1754349566257</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1754349566257</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
